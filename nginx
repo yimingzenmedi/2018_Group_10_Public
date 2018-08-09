@@ -1,0 +1,10 @@
+server {
+    listen 80;
+    server_name gogs.doingit.today;
+
+    proxy_set_header X-Real-IP  $remote_addr; # pass on real client IP
+
+    location / {
+        proxy_pass http://127.0.0.1:6000;
+    }
+}
